@@ -15,6 +15,8 @@
   --vp-c-brand-dark: #535bf2;
   --vp-c-brand-darker: #454ce1;
   --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
+  --vp-c-text:#2c3639;
+
 }
 
 /**
@@ -88,4 +90,10 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand) !important;
 }
+
+.VPNav {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+}
+
+
 
