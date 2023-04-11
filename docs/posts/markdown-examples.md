@@ -1,4 +1,13 @@
-# Markdown Extension Examples
+---
+title: js变量提升
+description: javascript的变量提升机制
+date: 2020-12-08
+outline: deep
+tags:
+  - javascript
+---
+
+## Markdown Extension Examples
 
 This page demonstrates some of the built-in markdown extensions provided by VitePress.
 
