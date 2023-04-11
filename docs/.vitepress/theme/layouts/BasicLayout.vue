@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <Layout></Layout>
+    <Layout>
+      <template #doc-before>
+        <Title></Title>
+      </template>
+    </Layout>
     <div class="footer">
       <Footer></Footer>
     </div>
@@ -10,6 +14,7 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
 import Footer from '../components/Footer.vue'
+import Title from '../components/Title.vue'
 import { useData } from 'vitepress'
 const { page, frontmatter } = useData()
 const { Layout } = DefaultTheme
