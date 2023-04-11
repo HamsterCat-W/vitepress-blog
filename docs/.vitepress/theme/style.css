@@ -81,6 +81,7 @@
   --vp-custom-block-tip-border: var(--vp-c-brand);
   --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
   --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+  --vp-c-text: var(--vp-c-text-dark-1);
 }
 
 /**
@@ -93,6 +94,10 @@
 
 .VPNav {
   box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+}
+
+.vp-doc h2:first-child{
+  border-top: none;
 }
 
 
