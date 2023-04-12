@@ -1,0 +1,13 @@
+{
+  "restartable": "rs",
+  "verbose": true,
+  "watch": [
+    "docs/posts/**/*.md",
+    "docs/.vitepress/**/*.ts"
+  ],
+  "ignore": [
+    "test/*.spec.ts"
+  ],
+  "delay": "1000",
+  "exec": "vitepress dev docs"
+}
