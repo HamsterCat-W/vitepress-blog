@@ -8,6 +8,5 @@
   "ignore": [
     "test/*.spec.ts"
   ],
-  "delay": "1000",
   "exec": "vitepress dev docs"
 }
