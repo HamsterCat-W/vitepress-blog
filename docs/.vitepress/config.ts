@@ -3,7 +3,7 @@ import useSideBar from './theme/hooks/useSideBar'
 
 // https://vitepress.dev/reference/site-config
 export default async () => {
-  const sidebar = await useSideBar()
+  const { sidebar } = await useSideBar()
   return defineConfig({
     title: '个人博客',
     description: '个人博客网站',
@@ -25,7 +25,6 @@ export default async () => {
         { text: '文档', link: '/markdown-examples' },
       ],
       sidebar,
-
       socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
     },
     vite: {
