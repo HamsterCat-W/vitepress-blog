@@ -61,6 +61,13 @@ export default async () => {
     }
   })
 
+  try {
+    await fs.writeJSON('docs/posts/docs.json', { docs: sideList }, { spaces: 2 })
+    console.log('success')
+  } catch (error) {
+    console.log(error)
+  }
+
   const menuList = Object.values(sideListMap)
 
   const sidebar = menuList
@@ -72,6 +79,5 @@ export default async () => {
 
   return {
     sidebar,
-    sideList,
   }
 }
