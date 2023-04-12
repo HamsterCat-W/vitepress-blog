@@ -100,5 +100,9 @@
   border-top: none;
 }
 
+body {
+  cursor: url('/cursor/cursor.ico'), auto ;
+}
+
 
 
