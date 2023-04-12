@@ -10,7 +10,6 @@ import { useData, useRoute } from 'vitepress'
 import dayjs from 'dayjs'
 import { computed, ref, watch } from 'vue'
 const route = useRoute()
-console.log('🚀 ~ file: Title.vue:12 ~ route:', route)
 
 const title = ref('')
 const frontmatter = ref<{
