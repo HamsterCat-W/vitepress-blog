@@ -12,3 +12,12 @@ export const createMapping = (list: Array<any>, key: string): any => {
 export const formatTime = (timer: string, formatTime: string = 'YYYY-MM-DD') => {
   return dayjs(timer).format(formatTime)
 }
+
+// 获取随机颜色
+export const getRandomColor = () => {
+  const r = Math.random() * 255
+  const g = Math.random() * 255
+  const b = Math.random() * 255
+
+  return `rgb(${r},${g},${b})`
+}
