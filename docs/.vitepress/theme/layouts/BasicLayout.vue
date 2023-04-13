@@ -1,23 +1,21 @@
 <template>
-  <div class="container">
-    <Layout>
-      <!-- doc -->
-      <template #doc-before>
-        <Title></Title>
-      </template>
-      <!-- 404 -->
-      <template #not-found>404</template>
-      <!-- home -->
-      <template #home-hero-before>
-        <HomeHero></HomeHero>
-      </template>
-      <template #home-features-after>
-        <HomeFeatures></HomeFeatures>
-      </template>
-    </Layout>
-    <div class="footer">
-      <Footer></Footer>
-    </div>
+  <Layout>
+    <!-- doc -->
+    <template #doc-before>
+      <Title></Title>
+    </template>
+    <!-- 404 -->
+    <template #not-found>404</template>
+    <!-- home -->
+    <template #home-hero-before>
+      <HomeHero></HomeHero>
+    </template>
+    <template #home-features-after>
+      <HomeFeatures></HomeFeatures>
+    </template>
+  </Layout>
+  <div class="footer">
+    <Footer></Footer>
   </div>
 </template>
 
@@ -32,8 +30,4 @@ const { page, frontmatter } = useData()
 const { Layout } = DefaultTheme
 </script>
 
-<style scoped lang="less">
-.container {
-  position: relative;
-}
-</style>
+<style scoped lang="less"></style>
