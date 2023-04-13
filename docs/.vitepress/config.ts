@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import useSideBar from './theme/hooks/useSideBar'
+import Unocss from 'unocss/vite'
 
 // https://vitepress.dev/reference/site-config
 export default async () => {
@@ -33,6 +34,7 @@ export default async () => {
         port: 3077,
         host: true,
       },
+      plugins: [Unocss({})],
     },
   })
 }

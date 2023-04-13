@@ -106,3 +106,42 @@ body {
 
 
 
+
+
+@media  (min-width:1200){
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width:1200) {
+  .container {
+    width: 1200px;
+  }
+}
+
+@media (min-width:1280) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (min-width:768) {
+  .container {
+    width: 1200px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    min-width: 1200px;
+  }
+
+}
+
+
+
+
+
+
+

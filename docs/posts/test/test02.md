@@ -1,9 +1,11 @@
 ---
-title: 变量提升22
+title: 量提升ewwe
 description: javascript的变量提升机制
-date: 2020-12-06
+date: 2020-12-05
+outline: deep
 tags:
   - javascript
-outline: deep
+imgSrc: /images/home/home_page.jpg
+author: tomorrow
 classify: test
 ---

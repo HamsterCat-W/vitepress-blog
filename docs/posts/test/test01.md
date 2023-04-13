@@ -1,9 +1,11 @@
 ---
-title: 变量提升
+title: 量提升
 description: javascript的变量提升机制
-date: 2020-12-08
+date: 2020-12-06
+outline: deep
 tags:
   - javascript
-outline: deep
+imgSrc: /images/home/home_page.jpg
+author: tomorrow
 classify: test
 ---

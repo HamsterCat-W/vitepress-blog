@@ -5,6 +5,8 @@ date: 2020-12-08
 outline: deep
 tags:
   - javascript
+imgSrc: /images/home/home_page.jpg
+author: tomorrow
 ---
 
 ## Markdown Extension Examples
