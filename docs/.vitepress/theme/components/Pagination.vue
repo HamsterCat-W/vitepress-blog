@@ -1,12 +1,17 @@
 <template>
   <div class="page-container">
     <ul class="flex items-center">
-      <li class="paging-item disabled">&lt;-</li>
-      <li class="paging-item">1</li>
-      <li class="paging-item">2</li>
-      <li class="paging-item">3</li>
-      <li class="paging-item">4</li>
-      <li class="paging-item disabled">-&gt;</li>
+      <li class="paging-item" :class="{ disabled: current === 1 }" @click="prePage">&lt;-</li>
+      <li
+        class="paging-item"
+        v-for="item in pageList"
+        :key="item"
+        :class="{ current: current === item }"
+        @click="changeCurrent(item)"
+      >
+        {{ item }}
+      </li>
+      <li class="paging-item" :class="{ disabled: current === pageList.length }" @click="nextPage">-&gt;</li>
     </ul>
   </div>
 </template>
@@ -25,11 +30,21 @@ const emits = defineEmits(['update:current'])
 const pageList = computed(() => {
   const { pageSize, total } = props
   const lst = Math.ceil(total / pageSize)
-  return [new Array()]
+  return [...new Array(lst).keys()].map((i: number) => i + 1)
 })
 
-function ref<T>(current: number) {
-  throw new Error('Function not implemented.')
+const changeCurrent = (current: number) => {
+  emits('update:current', current)
+}
+
+const prePage = () => {
+  if (props.current === 1) return
+  emits('update:current', props.current - 1)
+}
+
+const nextPage = () => {
+  if (props.current === pageList.value.length) return
+  emits('update:current', props.current + 1)
 }
 </script>
 

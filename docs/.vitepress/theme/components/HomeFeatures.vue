@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="pagination mt-4 mb-4">
-      <Pagination :current="current" :pageSize="pageSize" :total="total"></Pagination>
+      <Pagination v-model:current="current" :pageSize="pageSize" :total="total"></Pagination>
     </div>
   </div>
 </template>
@@ -48,12 +48,12 @@ const docList = ref<sideListItem[]>([])
 const svgList = ref<iconItem[]>([])
 const current = ref<number>(1)
 const pageSize: number = 9
-const total = ref<number>(0)
+const total = ref<number>(20)
 const getFileList = async () => {
   try {
     const [docsInfo, svgsInfo] = await Promise.all([axios.get('/docs.json'), axios.get('/svgs.json')])
     docList.value = docsInfo.data['docs']
-    total.value = docList.value.length
+    // total.value = docList.value.length
     svgList.value = svgsInfo.data['icons']
   } catch (error) {
     console.log('🚀 ~ file: HomeFeatures.vue:57 ~ getFileList ~ error:', error)
