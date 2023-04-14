@@ -29,18 +29,6 @@
       "author": "tomorrow"
     },
     {
-      "classify": "vue-study",
-      "title": "js变weefwfmwkwm提升",
-      "date": "2020-12-20T00:00:00.000Z",
-      "link": "/vue-study/01",
-      "imgSrc": "/images/home/home_page.jpg",
-      "description": "javascript的变量提升机制",
-      "tags": [
-        "aaaa"
-      ],
-      "author": "tomorrow"
-    },
-    {
       "classify": "test",
       "title": "量提升",
       "date": "2020-12-06T00:00:00.000Z",
@@ -61,6 +49,18 @@
       "description": "javascript的变量提升机制",
       "tags": [
         "javascript"
+      ],
+      "author": "tomorrow"
+    },
+    {
+      "classify": "vue-study",
+      "title": "js变weefwfmwkwm提升",
+      "date": "2020-12-20T00:00:00.000Z",
+      "link": "/vue-study/01",
+      "imgSrc": "/images/home/home_page.jpg",
+      "description": "javascript的变量提升机制",
+      "tags": [
+        "aaaa"
       ],
       "author": "tomorrow"
     }

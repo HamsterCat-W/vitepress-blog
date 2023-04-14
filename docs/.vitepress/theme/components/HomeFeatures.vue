@@ -1,6 +1,7 @@
 <template>
   <div class="page-container">
     <!-- {{ docs }} -->
+    <!-- {{ svgList }} -->
     <div class="test"></div>
     <div class="docs-card flex flex-wrap">
       <div class="docs-card-item p-3 relative" v-for="item in docs" :key="item.link" @click="goDoc(item?.link)">
@@ -22,7 +23,7 @@
             <div class="desc publish">{{ formatTime(item?.date) }}</div>
             <div class="tags flex items-center">
               <span class="publish mr-2">{{ tag(item) }}</span>
-              <img src="/images/icons/yuhangyuan2.svg" alt="" srcset="" height="24" width="24" />
+              <img :src="getRandomIcons(svgList)" alt="" srcset="" height="24" width="24" />
             </div>
           </div>
         </div>
@@ -36,26 +37,32 @@
 import { computed, ref } from 'vue'
 import axios from 'axios'
 import dayjs from 'dayjs'
-import { formatTime, getRandomColor } from '../utils'
+import { formatTime, getRandomColor, getRandomIcons } from '../utils'
 import { useRouter } from 'vitepress'
 
 const router = useRouter()
 console.log('🚀 ~ file: HomeFeatures.vue:38 ~ router:', router)
 const docList = ref<sideListItem[]>([])
+const svgList = ref<iconItem[]>([])
 const current = ref<number>(1)
 const pageSize: number = 9
 const getFileList = async () => {
-  const result = await axios.get('/docs.json')
-  docList.value = result.data['docs']
+  try {
+    const [docsInfo, svgsInfo] = await Promise.all([axios.get('/docs.json'), axios.get('/svgs.json')])
+    docList.value = docsInfo.data['docs']
+    svgList.value = svgsInfo.data['icons']
+  } catch (error) {
+    console.log('🚀 ~ file: HomeFeatures.vue:57 ~ getFileList ~ error:', error)
+  }
 }
-
+getFileList()
 const docs = computed(() => {
   return docList.value.sort((doc1: sideListItem, doc2: sideListItem) => +dayjs(doc2.date) - +dayjs(doc1.date)).slice(1)
 })
 
 const tag = computed(() => (item: sideListItem) => item?.tags?.map((i) => i)[0])
 
-getFileList()
+// const
 
 const goDoc = (link: string): void => {
   router.go(link)

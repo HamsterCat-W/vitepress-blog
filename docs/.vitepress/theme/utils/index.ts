@@ -21,3 +21,9 @@ export const getRandomColor = () => {
 
   return `rgb(${r},${g},${b})`
 }
+
+// 获取随机图标
+export const getRandomIcons = (iconList: iconItem[]): string => {
+  const idx = Math.floor(Math.random() * iconList.length)
+  return iconList[idx]?.iconUrl
+}
