@@ -3,7 +3,8 @@
   "verbose": true,
   "watch": [
     "docs/posts/**/*.md",
-    "docs/.vitepress/**/*.ts"
+    "docs/.vitepress/**/*.ts",
+    "docs/posts/public/images/icons/*.svg"
   ],
   "ignore": [
     "test/*.spec.ts"

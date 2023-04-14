@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitepress'
 import useSideBar from './theme/hooks/useSideBar'
 import Unocss from 'unocss/vite'
+import useIcons from './theme/hooks/useIcons'
 
 // https://vitepress.dev/reference/site-config
 export default async () => {
   const { sidebar } = await useSideBar()
+  await useIcons()
   return defineConfig({
     title: '个人博客',
     description: '个人博客网站',

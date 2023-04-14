@@ -63,7 +63,7 @@ export default async () => {
 
   try {
     await fs.writeJSON('docs/posts/docs.json', { docs: sideList }, { spaces: 2 })
-    console.log('success')
+    console.log('docs save success')
   } catch (error) {
     console.log(error)
   }

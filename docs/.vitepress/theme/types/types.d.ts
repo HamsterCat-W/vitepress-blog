@@ -22,3 +22,8 @@ interface item {
   date: Dayjs
   classify: undefined | string
 }
+
+interface iconItem {
+  iconName: string
+  iconUrl: string
+}
