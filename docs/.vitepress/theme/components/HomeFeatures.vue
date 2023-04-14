@@ -1,8 +1,7 @@
 <template>
-  <div class="page-container">
+  <div class="page-container flex flex-col items-center">
     <!-- {{ docs }} -->
     <!-- {{ svgList }} -->
-    <div class="test"></div>
     <div class="docs-card flex flex-wrap">
       <div class="docs-card-item p-3 relative" v-for="item in docs" :key="item.link" @click="goDoc(item?.link)">
         <div class="item-container">
@@ -29,7 +28,9 @@
         </div>
       </div>
     </div>
-    <div class="pagination">分页</div>
+    <div class="pagination mt-4 mb-4">
+      <Pagination :current="current" :pageSize="pageSize" :total="total"></Pagination>
+    </div>
   </div>
 </template>
 
@@ -39,6 +40,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import { formatTime, getRandomColor, getRandomIcons } from '../utils'
 import { useRouter } from 'vitepress'
+import Pagination from './Pagination.vue'
 
 const router = useRouter()
 console.log('🚀 ~ file: HomeFeatures.vue:38 ~ router:', router)
@@ -46,10 +48,12 @@ const docList = ref<sideListItem[]>([])
 const svgList = ref<iconItem[]>([])
 const current = ref<number>(1)
 const pageSize: number = 9
+const total = ref<number>(0)
 const getFileList = async () => {
   try {
     const [docsInfo, svgsInfo] = await Promise.all([axios.get('/docs.json'), axios.get('/svgs.json')])
     docList.value = docsInfo.data['docs']
+    total.value = docList.value.length
     svgList.value = svgsInfo.data['icons']
   } catch (error) {
     console.log('🚀 ~ file: HomeFeatures.vue:57 ~ getFileList ~ error:', error)
@@ -77,7 +81,6 @@ const goDoc = (link: string): void => {
 
 .docs-card {
   width: 800px;
-  margin: 0 auto;
 }
 
 .docs-card-item {
