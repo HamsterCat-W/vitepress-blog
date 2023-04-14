@@ -1,3 +1,5 @@
+// 配置目录映射
+
 interface SideBarTitleItem {
   label: string
   director: string
