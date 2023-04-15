@@ -25,7 +25,7 @@ const props = defineProps<{
   total: number
 }>()
 
-const emits = defineEmits(['update:current'])
+const emits = defineEmits(['update:current', 'change'])
 
 const pageList = computed(() => {
   const { pageSize, total } = props
@@ -35,16 +35,19 @@ const pageList = computed(() => {
 
 const changeCurrent = (current: number) => {
   emits('update:current', current)
+  emits('change', current)
 }
 
 const prePage = () => {
   if (props.current === 1) return
   emits('update:current', props.current - 1)
+  emits('change', props.current - 1)
 }
 
 const nextPage = () => {
   if (props.current === pageList.value.length) return
   emits('update:current', props.current + 1)
+  emits('change', props.current + 1)
 }
 </script>
 
