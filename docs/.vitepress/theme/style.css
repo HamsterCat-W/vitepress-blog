@@ -16,6 +16,7 @@
   --vp-c-brand-darker: #454ce1;
   --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
   --vp-c-text:#2c3639;
+  --vp-accent-first: #00838f;
 
 }
 
@@ -103,6 +104,19 @@
 body {
   cursor: url('/cursor/cursor.ico'), auto ;
 }
+
+/* 滚动条样式 */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--vp-accent-first); 
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+  border-radius: 3em;
+}
+
 
 
 

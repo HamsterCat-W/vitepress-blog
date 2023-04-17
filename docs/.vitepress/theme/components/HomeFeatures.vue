@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="pagination mt-4 mb-4">
-      <Pagination v-model:current="current" :pageSize="pageSize" :total="total"></Pagination>
+      <Pagination v-model:current="current" :pageSize="pageSize" :total="total" @change="handleChange"></Pagination>
     </div>
   </div>
 </template>
@@ -42,18 +42,24 @@ import { formatTime, getRandomColor, getRandomIcons } from '../utils'
 import { useRouter } from 'vitepress'
 import Pagination from './Pagination.vue'
 
+interface DocsInfo {
+  data: {
+    docs: Array<sideListItem>
+  }
+}
+
 const router = useRouter()
 console.log('🚀 ~ file: HomeFeatures.vue:38 ~ router:', router)
 const docList = ref<sideListItem[]>([])
 const svgList = ref<iconItem[]>([])
 const current = ref<number>(1)
-const pageSize: number = 9
-const total = ref<number>(20)
+const pageSize: number = 6
+const total = ref<number>(0)
 const getFileList = async () => {
   try {
-    const [docsInfo, svgsInfo] = await Promise.all([axios.get('/docs.json'), axios.get('/svgs.json')])
-    docList.value = docsInfo.data['docs']
-    // total.value = docList.value.length
+    const [docsInfo, svgsInfo]: [DocsInfo, any] = await Promise.all([axios.get('/docs.json'), axios.get('/svgs.json')])
+    docList.value = docsInfo.data['docs'].filter((doc: sideListItem) => doc.link !== '/index')
+    total.value = docList.value.length
     svgList.value = svgsInfo.data['icons']
   } catch (error) {
     console.log('🚀 ~ file: HomeFeatures.vue:57 ~ getFileList ~ error:', error)
@@ -61,7 +67,11 @@ const getFileList = async () => {
 }
 getFileList()
 const docs = computed(() => {
-  return docList.value.sort((doc1: sideListItem, doc2: sideListItem) => +dayjs(doc2.date) - +dayjs(doc1.date)).slice(1)
+  const start: number = (current.value - 1) * pageSize
+  const end: number = current.value * pageSize
+  return docList.value
+    .sort((doc1: sideListItem, doc2: sideListItem) => +dayjs(doc2.date) - +dayjs(doc1.date))
+    .slice(start, end)
 })
 
 const tag = computed(() => (item: sideListItem) => item?.tags?.map((i) => i)[0])
@@ -71,6 +81,9 @@ const tag = computed(() => (item: sideListItem) => item?.tags?.map((i) => i)[0])
 const goDoc = (link: string): void => {
   router.go(link)
 }
+
+// 触发监听
+const handleChange = (current: number) => {}
 </script>
 
 <style scoped lang="less">

@@ -26,7 +26,8 @@ import Title from '../components/Title.vue'
 import HomeHero from '../components/HomeHero.vue'
 import HomeFeatures from '../components/HomeFeatures.vue'
 import { useData } from 'vitepress'
-const { page, frontmatter } = useData()
+const { page, frontmatter, theme } = useData()
+
 const { Layout } = DefaultTheme
 </script>
 

@@ -17,6 +17,8 @@ export default async () => {
     markdown: {
       lineNumbers: true,
     },
+    // 关闭主题切换
+    appearance: false,
     srcDir: 'posts',
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
@@ -27,8 +29,10 @@ export default async () => {
         { text: '主页', link: '/' },
         { text: '文档', link: '/markdown-examples' },
       ],
+
       sidebar,
       socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+      docFooter: { prev: '上一篇', next: '下一篇' },
     },
     vite: {
       clearScreen: false,
